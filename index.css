@@ -803,6 +803,24 @@ footer > ul > li:last-child {
 }
 
 @media (max-width: 640px) {
+
+  .menu.active {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .menu-button.active {
+    position: fixed;
+    z-index: 999;
+  }
+
+
   .initial-content > .center > .left > .content {
     font-size: 25px;
   }
