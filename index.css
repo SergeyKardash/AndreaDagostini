@@ -10,6 +10,29 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
+.img-container img {
+  width: 100%;
+}
+
+.video-container {
+  position: relative;
+}
+
+.video-container img {
+  width: 100%;
+}
+
+.video-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/img/icons/play.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .home-page {
   max-width: 1160px;
   margin: 0 auto;
@@ -58,7 +81,9 @@ header {
   font-size: 20px;
 }
 
-.menu > li:hover {
+.menu > li:hover,
+li:active,
+li:focus {
   color: #ffb900;
   position: relative;
   font-weight: 600;
@@ -328,6 +353,10 @@ header {
   border-right: none;
 }
 
+.article > .img-container {
+  margin: 30px 0;
+}
+
 .feed .more {
   display: inline-block;
   text-transform: uppercase;
@@ -442,11 +471,20 @@ header {
 
 .connect > .social .icons {
   display: flex;
+  align-items: center;
+}
+
+.icons > .icon {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 31px;
+  margin-left: 30px;
 }
 
 .connect span {
   display: inline-block;
-  max-width: 150px;
+  max-width: 106px;
   font-size: 17px;
   line-height: 19px;
   font-weight: 600;
@@ -501,6 +539,11 @@ header {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.form_with_events .title.short > span {
+  padding-right: 10px;
+  background-image: url(./assets/img/icons/fill-orange-2.svg);
 }
 
 .form_with_events > .form {
@@ -593,11 +636,15 @@ select:focus {
 }
 
 .form-field.prefix > .prefix {
-  height: 30px;
-  width: 30px;
-  background-color: #000;
+  height: 25px;
+  width: 25px;
+  background-image: url(./assets/img/icons/calendar.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
-  left: 10px;
+  left: 7px;
+  top: 3px;
+  opacity: 0.25;
 }
 
 .form > form > button {
@@ -761,7 +808,8 @@ footer > ul > li:last-child {
   }
 
   .connect {
-    padding: unset;
+    padding: 0 30px;
+    justify-content: space-around;
   }
 
   .connect span {
@@ -770,20 +818,21 @@ footer > ul > li:last-child {
 
   .connect > .social {
     padding: 15px 0;
-    justify-content: center;
+    flex-direction: column;
   }
 
-  .social > .icons {
+  .social .icons {
     margin-top: 20px;
   }
 
   .connect > .action {
     padding: 15px 0;
     justify-content: center;
+    flex-direction: column;
   }
 
-  .connect > .action > button {
-    margin: 20px 0 0;
+  .connect > .action button {
+    margin-top: 20px;
   }
 
   .form_with_events > .events {
@@ -803,7 +852,6 @@ footer > ul > li:last-child {
 }
 
 @media (max-width: 640px) {
-
   .menu.active {
     top: 0;
     left: 0;
@@ -819,7 +867,6 @@ footer > ul > li:last-child {
     position: fixed;
     z-index: 999;
   }
-
 
   .initial-content > .center > .left > .content {
     font-size: 25px;
@@ -856,10 +903,6 @@ footer > ul > li:last-child {
     height: unset;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .connect > .action > button {
-    margin: 0 20px;
   }
 
   .form_with_events {
